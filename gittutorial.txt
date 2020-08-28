@@ -1,0 +1,86 @@
+	// Git Tutorials
+	
+	git --version
+	
+	git config user.name "Dhruvil"  //to set the user name or update the user name
+	
+	git config user.name //to see the user name
+	
+	git config user.email "pdhruvil29@gmail.com"  //to set the email
+	
+	git config user.email //to see the email
+	
+	git help //to seek for help
+	
+	git help clone //here we can write any command of git instead of clone .. this will show up the commands in the browser...here it will show help about clone commands
+	
+	git init //to initialize the present working directory as a git repository
+	
+	//how to commit any change in the repository
+	1) git add . (this adds all the files in the staging area) OR more specif way is --- git add file_name.txt(or any file name) //this basically makes it ready for commiting
+				//Staging area means it is a kind of assembly point where first all files ready to commit gathers and then they are been commited. 
+	2) git commit -m "Any message for ex:- this change was done at 4/10/2000 at 5pm by Dhruvil Patel"
+	
+	//basically commit means we save our changes to the repository at certain point of time
+	//and whenever we want to come back at that point of time...we can come
+	
+	
+	git log //this shows all the commits done with messages and time
+	
+	git status //this shows the status of all files in the directory whether they are commited or not...if all files are commited then it will show nothing ..but if any file is not commited then it shows it
+	
+	
+	git log --author "Dhruvil"  //this shows the commits done by name="Dhruvil"
+	
+	git restore file_name.txt // whenever there is any change done to any file and if I dont want to have that change on that file then simply i can restore it to the previous stage of the file..it means the changes done will be discarded
+	
+	git diff //this is to view the difference in all the files in the working copy and the one in the repository
+	
+	git diff file_name.txt //this will only view the changes of that file in the owrking copy and the one in the repository
+	
+	git diff --staged //this is to view the differences in the files which are in the staging area and in the repository
+	//for ex:- there are 2 files 1.txt and 2.txt...now i make some changes in 1.txt and type git add - 1.txt...now 1.txt is in the staging area but still not commited
+	//..so to view the changes in it we hit "git diff --staged"
+	
+	git rm file_name.txt //this will delete the file from the repository and also from the working directory...remember after deleting we should commit it..so that if we want to come back at that point of time we can.
+		
+	git mv first.txt home.txt //this will rename the file names first.txt to home.txt and then we shall commit it
+	
+	//Let us say we created a new folder named "myfolder" and we want to move one of our files to that folder
+	git mv second.txt myfolder/secondpage.txt //this will move second.txt to the folder myfolder and rename it to secondpage.txt.....we can also keep the name as it is "myfolder/second.txt"
+	
+	
+	git commit -am "Any commiting message" //this actually directly commits changes in all the files in the directory...we do not need to add it to the staging area
+										   //But it should be very carefully used as it commits changes in all the files...so if we changed 2 files but we want to commit only 1 file then we should not use this command...
+										   //...instead we should first add the 1st file and then commit
+										   
+										   
+	git checkout -- index.html //now if there any changes made to the index.html and it is not yet commited...and now we want to restore the changes to the previous form
+							   //..we can type this checkout command and all the changes done in index.html will revert back....but remember the changes should not have been committed
+							   
+	
+	git reset HEAD file_name.txt //here we staged the file...file_name.txt...but now we want to unstage it .. so we can use this command to unstage the file
+				     // git restore --staged file_name.txt...we can also use this command to unstage the file
+	
+										   
+										   
+	//Note that whenever we commit any change the time and date is recorded and also there is a unique code given to that commit...we can see it by typing git log
+	git checkout prefix_code -- file_name.txt //This is basically when we commit some changes and now we do not want that changes and we want to move back to our previous version of the file
+											  //..Then we can....Here the prefix_code is nothing but the unique commit code of the version of the file at which we want to go back
+											  //For ex:-
+											  //012se2345tgff --- 4.5pm "This is the last commit"
+											  //123rdgsfsgtt4 --- 3.0pm "This is the first commit"
+											  //Now after we commited the last commit..we want to come back to the first commit version of the file...so the command will be as follows
+											  //git checkout 0123rd -- file_name.txt
+											  //And then again commit it
+											  
+	/**GITHUB**//
+	
+	1) Create a new repository online on github
+	
+	2) Now let say we want to move our local project on our computer to github...so we shall first make a remote connection to the URL given by the github for our repositry.
+	   To do that type : - git remote add gitrepo(any short name u can give) https://github.com/dhruvil44/Bucky-Dogs.git   //This will basically connect our project on our computer to the github connection
+	   Now if we want to see our all remote repository...tyoe:- git remote //this will give all the repository names on github
+	   
+	3) Now we shall upload all the files in our project to the github Repository...for that type :- git push -u gitrepo(This is the name given above) master //This uploads all the file in our project to the repository of Github 
+	
